@@ -1,4 +1,7 @@
 "use strict";
+var emailValidator = require("email-validator");
+var request = require('request');
+var api = require('./secrets.json');
 
 /**
  * Notify Recruiters of a new member registration
@@ -7,9 +10,6 @@
  * @param {!Object} res Cloud Function response context.
  */
  exports.verify_registration_data = function (req, res) {
-	var emailValidator = require("email-validator");
-	var request = require('request');
-	var api = require('./secrets.json');
 	var data;
 
 	data = req.body;
