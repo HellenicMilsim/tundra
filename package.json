@@ -9,7 +9,13 @@
   "author": "aklin",
   "private" : true,
   "license": "MIT",
+  "repository": {
+    "type": "git",
+  },
+  "bugs": {
+  },
   "dependencies":{
+    "email-validator": "^1.1.1",
     "request": "^2.81.0"
   }
 }
