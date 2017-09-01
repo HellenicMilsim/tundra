@@ -1,0 +1,9 @@
+{
+	"username": "user",
+	"email": "user@example.com",
+	"steam": "steam ID or URL",
+	"whyJoin": "plain text",
+	"experience": "plain text",
+	"ageCheck": true,
+	"rulesCheck": true,
+}
