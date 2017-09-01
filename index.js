@@ -20,7 +20,7 @@ var api = require('./secrets.json');
 		}
 
 		if(!data.rulescheck){
-			"Rules verification failed";
+			return "Rules verification failed";
 		}
 
 		//check username free
