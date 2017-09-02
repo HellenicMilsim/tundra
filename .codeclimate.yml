@@ -1,21 +1,12 @@
 engines:
-
   eslint:
     enabled: true
     checks:
       comma-dangle:
         enabled: false
-  duplication:
-    enabled: true
-    config:
-      languages:
-      - javascript:
 ratings:
   paths:
-  - app/**
-  - lib/**
-  - "**.rb"
-  - "**.go"
+  - "**.js"
 exclude_paths:
 - spec/**/*
 - "**/vendor/**/*"
