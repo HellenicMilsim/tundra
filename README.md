@@ -4,3 +4,9 @@
 
 New user registration backend for the Hellenic Milsim community
 
+Tundra does the following: Upon accepting the new user registration form data,
+
+1. Validates form data
+1. Notifies Recruitment Officers (like its predecessor, [Trumpet](https://github.com/HellenicMilsim/trumpet))
+1. Adds entry to [the pipeline](https://github.com/HellenicMilsim/Recruitment/projects/1)
+1. Generates invitation link
