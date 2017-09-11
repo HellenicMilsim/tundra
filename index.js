@@ -3,6 +3,11 @@ var emailValidator = require("email-validator");
 var request = require('request');
 var api = require('./secrets.json');
 var CATEGORY_ID = 16;
+var config = {
+	category_id: 16,
+	welcome_msg: "",
+	groups: "arma3",
+};
 
 /**
  * Notify Recruiters of a new member registration
@@ -84,7 +89,7 @@ exports.verify_registration_data = function(req, res) {
 			// Topic title and body. Include steam ID from custom fields
 			"title": "Νεα Εγγραφή: " + username,
 			"raw": composeRaw(data),
-			"category": CATEGORY_ID
+			"category": config.category_id,
 		};
 
 		request.post({
@@ -94,5 +99,25 @@ exports.verify_registration_data = function(req, res) {
 
 	}
 
+	/**
+	 * Generate Discourse forum invite link
+	 */
+	function generateInvitation(data) {
+		var formData = {
+			// Pass a simple key-value pair 
+			"api_key": api.discourse.key,
+			"api_username": api.discourse.user,
+
+			// Topic title and body. Include steam ID from custom fields
+			"email": data.email,
+			"group_names": config.groups,
+			"custom_message": config.welcome_msg,
+		};
+
+		request.post({
+			url: api_url + "/invites/link",
+			"form": formData
+		}, function(err, httpResponse, body) {});
+	}
 
 };
