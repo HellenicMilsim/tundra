@@ -16,9 +16,11 @@ var config = {
  * @param {!Object} res Cloud Function response context.
  */
 exports.verify_registration_data = function(req, res) {
+	var IS_TEST;
 	var data;
 
 	data = req.body;
+	IS_TEST = data.test || false;
 
 	function verifyData(data) {
 		if (!data.agecheck) {
@@ -91,6 +93,11 @@ exports.verify_registration_data = function(req, res) {
 			"raw": composeRaw(data),
 			"category": config.category_id,
 		};
+
+		if(IS_TEST){
+			console.log(formData);
+			return;
+		}
 
 		request.post({
 			url: api_url + "/posts",
