@@ -22,6 +22,17 @@ exports.verify_registration_data = function(req, res) {
 	data = req.body;
 	IS_TEST = data.test || false;
 
+
+	if (checkDataExists(data) && verifyData(data) === 0) {
+		makePost(data);
+		res.status(200);
+	} else {
+		res.status(400);
+
+	}
+
+	return;
+
 	function verifyData(data) {
 		if (!data.agecheck) {
 			return "Age verification failed";
@@ -40,6 +51,8 @@ exports.verify_registration_data = function(req, res) {
 		}, function(err, res, body) {
 			return res.statusCode === 404;
 		});
+
+		return 0;
 	}
 
 
@@ -94,7 +107,7 @@ exports.verify_registration_data = function(req, res) {
 			"category": config.category_id,
 		};
 
-		if(IS_TEST){
+		if (IS_TEST) {
 			console.log(formData);
 			return;
 		}

@@ -6,4 +6,5 @@
 	"experience": "plain text",
 	"ageCheck": true,
 	"rulesCheck": true,
+	"test": true
 }
