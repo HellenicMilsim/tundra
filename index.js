@@ -79,7 +79,7 @@ exports.verify_registration_data = function(req, res) {
 	}
 
 	function checkProperty(data, prop) {
-		return data.hasOwnProperty(prop) || data[prop].trim().length > 0;
+		return data.hasOwnProperty(prop) || data[prop].toString().trim().length > 0;
 	}
 
 
